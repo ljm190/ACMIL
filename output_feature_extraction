@@ -25529,3 +25529,1572 @@ transformations:  Compose(
     Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
 )
 processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-FS-A1Z7-06Z-00-DX7.6E09A9E9-82D9-4D29-9E7F-14BC9C5DC105.h5: total of 2 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+index current: 3600
+index current: 3700
+index current: 3800
+index current: 3900
+index current: 4000
+index current: 4100
+index current: 4200
+index current: 4300
+index current: 4400
+index current: 4500
+index current: 4600
+index current: 4700
+index current: 4800
+index current: 4900
+index current: 5000
+index current: 5100
+index current: 5200
+index current: 5300
+index current: 5400
+index current: 5500
+index current: 5600
+
+computing features for TCGA-FS-A1Z7-06Z-00-DX7.6E09A9E9-82D9-4D29-9E7F-14BC9C5DC105 took 88.53455710411072 s
+
+progress: 448/475
+TCGA-FS-A1Z7-06Z-00-DX6.84CCDA65-9DC1-4235-900C-F3B54A39A9D7
+downsample [4.         4.00012856]
+downsampled_level_dim [52360 23336]
+level_dim [52360 23336]
+name TCGA-FS-A1Z7-06Z-00-DX6.84CCDA65-9DC1-4235-900C-F3B54A39A9D7
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-FS-A1Z7-06Z-00-DX6.84CCDA65-9DC1-4235-900C-F3B54A39A9D7.h5: total of 3 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+index current: 3600
+index current: 3700
+index current: 3800
+index current: 3900
+index current: 4000
+index current: 4100
+index current: 4200
+index current: 4300
+index current: 4400
+index current: 4500
+index current: 4600
+index current: 4700
+index current: 4800
+index current: 4900
+index current: 5000
+index current: 5100
+index current: 5200
+index current: 5300
+index current: 5400
+index current: 5500
+index current: 5600
+index current: 5700
+index current: 5800
+index current: 5900
+index current: 6000
+index current: 6100
+index current: 6200
+index current: 6300
+index current: 6400
+index current: 6500
+index current: 6600
+index current: 6700
+index current: 6800
+index current: 6900
+index current: 7000
+index current: 7100
+index current: 7200
+index current: 7300
+index current: 7400
+index current: 7500
+index current: 7600
+index current: 7700
+index current: 7800
+index current: 7900
+index current: 8000
+index current: 8100
+index current: 8200
+index current: 8300
+index current: 8400
+index current: 8500
+index current: 8600
+index current: 8700
+index current: 8800
+index current: 8900
+index current: 9000
+index current: 9100
+index current: 9200
+index current: 9300
+index current: 9400
+index current: 9500
+index current: 9600
+index current: 9700
+index current: 9800
+index current: 9900
+index current: 10000
+index current: 10100
+index current: 10200
+index current: 10300
+index current: 10400
+index current: 10500
+index current: 10600
+
+computing features for TCGA-FS-A1Z7-06Z-00-DX6.84CCDA65-9DC1-4235-900C-F3B54A39A9D7 took 93.4316246509552 s
+
+progress: 449/475
+TCGA-FS-A1Z7-06Z-00-DX9.7F36F443-CADB-4146-8B26-82E60DC88E55
+downsample [4.         4.00004864]
+downsampled_level_dim [49980 20560]
+level_dim [49980 20560]
+name TCGA-FS-A1Z7-06Z-00-DX9.7F36F443-CADB-4146-8B26-82E60DC88E55
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-FS-A1Z7-06Z-00-DX9.7F36F443-CADB-4146-8B26-82E60DC88E55.h5: total of 3 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+index current: 3600
+index current: 3700
+index current: 3800
+index current: 3900
+index current: 4000
+index current: 4100
+index current: 4200
+index current: 4300
+index current: 4400
+index current: 4500
+index current: 4600
+index current: 4700
+index current: 4800
+index current: 4900
+index current: 5000
+index current: 5100
+index current: 5200
+index current: 5300
+index current: 5400
+index current: 5500
+index current: 5600
+index current: 5700
+index current: 5800
+index current: 5900
+index current: 6000
+index current: 6100
+index current: 6200
+index current: 6300
+index current: 6400
+index current: 6500
+index current: 6600
+index current: 6700
+index current: 6800
+index current: 6900
+index current: 7000
+index current: 7100
+index current: 7200
+index current: 7300
+index current: 7400
+index current: 7500
+index current: 7600
+index current: 7700
+index current: 7800
+index current: 7900
+index current: 8000
+index current: 8100
+index current: 8200
+index current: 8300
+index current: 8400
+index current: 8500
+index current: 8600
+index current: 8700
+
+computing features for TCGA-FS-A1Z7-06Z-00-DX9.7F36F443-CADB-4146-8B26-82E60DC88E55 took 90.08984160423279 s
+
+progress: 450/475
+TCGA-EB-A41A-01Z-00-DX1.76C495EA-698C-465C-B2FA-5AF9269CED6C
+downsample [4.00007595 4.00021766]
+downsampled_level_dim [26333 13783]
+level_dim [26333 13783]
+name TCGA-EB-A41A-01Z-00-DX1.76C495EA-698C-465C-B2FA-5AF9269CED6C
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-EB-A41A-01Z-00-DX1.76C495EA-698C-465C-B2FA-5AF9269CED6C.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+
+computing features for TCGA-EB-A41A-01Z-00-DX1.76C495EA-698C-465C-B2FA-5AF9269CED6C took 78.32625150680542 s
+
+progress: 451/475
+TCGA-D9-A1X3-06Z-00-DX1.17AC16CC-5B22-46B3-B9C4-9E1F9C688D84
+downsample [4. 4.]
+downsampled_level_dim [24990 19541]
+level_dim [24990 19541]
+name TCGA-D9-A1X3-06Z-00-DX1.17AC16CC-5B22-46B3-B9C4-9E1F9C688D84
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-D9-A1X3-06Z-00-DX1.17AC16CC-5B22-46B3-B9C4-9E1F9C688D84.h5: total of 2 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+index current: 3600
+index current: 3700
+index current: 3800
+index current: 3900
+index current: 4000
+index current: 4100
+index current: 4200
+index current: 4300
+
+computing features for TCGA-D9-A1X3-06Z-00-DX1.17AC16CC-5B22-46B3-B9C4-9E1F9C688D84 took 38.363163471221924 s
+
+progress: 452/475
+TCGA-EE-A29D-01Z-00-DX1.20E820A1-6292-4717-ACAC-9797321FDE2A
+downsample [4.00004095 4.        ]
+downsampled_level_dim [24418 20235]
+level_dim [24418 20235]
+name TCGA-EE-A29D-01Z-00-DX1.20E820A1-6292-4717-ACAC-9797321FDE2A
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-EE-A29D-01Z-00-DX1.20E820A1-6292-4717-ACAC-9797321FDE2A.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+
+computing features for TCGA-EE-A29D-01Z-00-DX1.20E820A1-6292-4717-ACAC-9797321FDE2A took 68.78142166137695 s
+
+progress: 453/475
+TCGA-EE-A2MH-01Z-00-DX1.8DC9BBBE-4B8E-4722-B0CE-44059DD01010
+downsample [4.         4.00026469]
+downsampled_level_dim [11900 11334]
+level_dim [11900 11334]
+name TCGA-EE-A2MH-01Z-00-DX1.8DC9BBBE-4B8E-4722-B0CE-44059DD01010
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-EE-A2MH-01Z-00-DX1.8DC9BBBE-4B8E-4722-B0CE-44059DD01010.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+
+computing features for TCGA-EE-A2MH-01Z-00-DX1.8DC9BBBE-4B8E-4722-B0CE-44059DD01010 took 19.410973072052002 s
+
+progress: 454/475
+TCGA-EE-A2GN-01Z-00-DX1.CC2B5420-6636-4CC3-AD84-AE8B2751675D
+downsample [4.00010867 4.        ]
+downsampled_level_dim [27607 22112]
+level_dim [27607 22112]
+name TCGA-EE-A2GN-01Z-00-DX1.CC2B5420-6636-4CC3-AD84-AE8B2751675D
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-EE-A2GN-01Z-00-DX1.CC2B5420-6636-4CC3-AD84-AE8B2751675D.h5: total of 2 batches
+index current: 3600
+index current: 3700
+index current: 3800
+index current: 3900
+index current: 4000
+index current: 4100
+index current: 4200
+index current: 4300
+index current: 4400
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+
+computing features for TCGA-EE-A2GN-01Z-00-DX1.CC2B5420-6636-4CC3-AD84-AE8B2751675D took 89.01866221427917 s
+
+progress: 455/475
+TCGA-D3-A8GI-06Z-00-DX1.CF5E4553-D092-40DD-A610-A1879563C4AC
+downsample [4.00009057 4.00020358]
+downsampled_level_dim [22082 14736]
+level_dim [22082 14736]
+name TCGA-D3-A8GI-06Z-00-DX1.CF5E4553-D092-40DD-A610-A1879563C4AC
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-D3-A8GI-06Z-00-DX1.CF5E4553-D092-40DD-A610-A1879563C4AC.h5: total of 2 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+index current: 3600
+
+computing features for TCGA-D3-A8GI-06Z-00-DX1.CF5E4553-D092-40DD-A610-A1879563C4AC took 118.90722393989563 s
+
+progress: 456/475
+TCGA-EE-A2A6-01Z-00-DX1.9897318F-B858-4036-9F4B-4AF92D357859
+downsample [4.00010188 4.00011709]
+downsampled_level_dim [29445 17081]
+level_dim [29445 17081]
+name TCGA-EE-A2A6-01Z-00-DX1.9897318F-B858-4036-9F4B-4AF92D357859
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-EE-A2A6-01Z-00-DX1.9897318F-B858-4036-9F4B-4AF92D357859.h5: total of 2 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+index current: 3600
+index current: 3700
+index current: 3800
+index current: 3900
+index current: 4000
+index current: 4100
+index current: 4200
+index current: 4300
+index current: 4400
+index current: 4500
+index current: 4600
+index current: 4700
+index current: 4800
+
+computing features for TCGA-EE-A2A6-01Z-00-DX1.9897318F-B858-4036-9F4B-4AF92D357859 took 90.30936121940613 s
+
+progress: 457/475
+TCGA-D3-A5GS-06Z-00-DX1.CA7E245E-86F6-4FB4-9BF9-BD8846FB023A
+downsample [4.00022653 4.00012897]
+downsampled_level_dim [8829 7754]
+level_dim [8829 7754]
+name TCGA-D3-A5GS-06Z-00-DX1.CA7E245E-86F6-4FB4-9BF9-BD8846FB023A
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-D3-A5GS-06Z-00-DX1.CA7E245E-86F6-4FB4-9BF9-BD8846FB023A.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+
+computing features for TCGA-D3-A5GS-06Z-00-DX1.CA7E245E-86F6-4FB4-9BF9-BD8846FB023A took 17.255762815475464 s
+
+progress: 458/475
+TCGA-D3-A3C6-06Z-00-DX1.AEAFE336-C5BC-4EC0-A869-14DCB44700CD
+downsample [4.0002245  4.00023305]
+downsampled_level_dim [13363  8582]
+level_dim [13363  8582]
+name TCGA-D3-A3C6-06Z-00-DX1.AEAFE336-C5BC-4EC0-A869-14DCB44700CD
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-D3-A3C6-06Z-00-DX1.AEAFE336-C5BC-4EC0-A869-14DCB44700CD.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+
+computing features for TCGA-D3-A3C6-06Z-00-DX1.AEAFE336-C5BC-4EC0-A869-14DCB44700CD took 23.688275575637817 s
+
+progress: 459/475
+TCGA-RP-A694-01Z-00-DX1.31B4F597-0CDA-4A3B-B34E-881ADCAB17DF
+downsample [4.00018256 4.00043042]
+downsampled_level_dim [16433  6970]
+level_dim [16433  6970]
+name TCGA-RP-A694-01Z-00-DX1.31B4F597-0CDA-4A3B-B34E-881ADCAB17DF
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-RP-A694-01Z-00-DX1.31B4F597-0CDA-4A3B-B34E-881ADCAB17DF.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+
+computing features for TCGA-RP-A694-01Z-00-DX1.31B4F597-0CDA-4A3B-B34E-881ADCAB17DF took 10.523873567581177 s
+
+progress: 460/475
+TCGA-YD-A9TA-01Z-00-DX2.702FBD47-C816-4622-A5F4-DEE100169B82
+downsample [4.00013096 4.        ]
+downsampled_level_dim [22907 20836]
+level_dim [22907 20836]
+name TCGA-YD-A9TA-01Z-00-DX2.702FBD47-C816-4622-A5F4-DEE100169B82
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-YD-A9TA-01Z-00-DX2.702FBD47-C816-4622-A5F4-DEE100169B82.h5: total of 2 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+index current: 3600
+index current: 3700
+index current: 3800
+index current: 3900
+index current: 4000
+index current: 4100
+index current: 4200
+index current: 4300
+index current: 4400
+index current: 4500
+index current: 4600
+index current: 4700
+
+computing features for TCGA-YD-A9TA-01Z-00-DX2.702FBD47-C816-4622-A5F4-DEE100169B82 took 90.0563154220581 s
+
+progress: 461/475
+TCGA-EB-A44O-01Z-00-DX1.A07646AF-D30D-4C44-B8F6-B81D3F2A4F5D
+downsample [4.         4.00005478]
+downsampled_level_dim [18326 18255]
+level_dim [18326 18255]
+name TCGA-EB-A44O-01Z-00-DX1.A07646AF-D30D-4C44-B8F6-B81D3F2A4F5D
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-EB-A44O-01Z-00-DX1.A07646AF-D30D-4C44-B8F6-B81D3F2A4F5D.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+
+computing features for TCGA-EB-A44O-01Z-00-DX1.A07646AF-D30D-4C44-B8F6-B81D3F2A4F5D took 60.25857400894165 s
+
+progress: 462/475
+TCGA-EE-A2MQ-01Z-00-DX1.9EDA37BD-21FD-4CED-8375-5D8FFD2D6CA0
+downsample [4.         4.00015762]
+downsampled_level_dim [27846 19033]
+level_dim [27846 19033]
+name TCGA-EE-A2MQ-01Z-00-DX1.9EDA37BD-21FD-4CED-8375-5D8FFD2D6CA0
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-EE-A2MQ-01Z-00-DX1.9EDA37BD-21FD-4CED-8375-5D8FFD2D6CA0.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+
+computing features for TCGA-EE-A2MQ-01Z-00-DX1.9EDA37BD-21FD-4CED-8375-5D8FFD2D6CA0 took 83.96675682067871 s
+
+progress: 463/475
+TCGA-GF-A769-01Z-00-DX1.17FA4EC6-053F-4F98-AF08-FA609776CDB9
+downsample [4.         4.00007986]
+downsampled_level_dim [22410 12522]
+level_dim [22410 12522]
+name TCGA-GF-A769-01Z-00-DX1.17FA4EC6-053F-4F98-AF08-FA609776CDB9
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-GF-A769-01Z-00-DX1.17FA4EC6-053F-4F98-AF08-FA609776CDB9.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+
+computing features for TCGA-GF-A769-01Z-00-DX1.17FA4EC6-053F-4F98-AF08-FA609776CDB9 took 26.498523712158203 s
+
+progress: 464/475
+TCGA-EE-A3J5-06Z-00-DX1.47202780-2B18-4661-AD4E-2AF8D1A7C9E5
+downsample [4.         4.00026592]
+downsampled_level_dim [8330 7521]
+level_dim [8330 7521]
+name TCGA-EE-A3J5-06Z-00-DX1.47202780-2B18-4661-AD4E-2AF8D1A7C9E5
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-EE-A3J5-06Z-00-DX1.47202780-2B18-4661-AD4E-2AF8D1A7C9E5.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+
+computing features for TCGA-EE-A3J5-06Z-00-DX1.47202780-2B18-4661-AD4E-2AF8D1A7C9E5 took 8.431395053863525 s
+
+progress: 465/475
+TCGA-YD-A9TA-01Z-00-DX1.FA69A80D-A4CF-4008-BE27-58D4F8B30827
+downsample [4.00013387 4.        ]
+downsampled_level_dim [22409 19965]
+level_dim [22409 19965]
+name TCGA-YD-A9TA-01Z-00-DX1.FA69A80D-A4CF-4008-BE27-58D4F8B30827
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-YD-A9TA-01Z-00-DX1.FA69A80D-A4CF-4008-BE27-58D4F8B30827.h5: total of 2 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+index current: 3600
+index current: 3700
+index current: 3800
+index current: 3900
+index current: 4000
+index current: 4100
+index current: 4200
+
+computing features for TCGA-YD-A9TA-01Z-00-DX1.FA69A80D-A4CF-4008-BE27-58D4F8B30827 took 88.55784034729004 s
+
+progress: 466/475
+TCGA-D3-A5GN-06Z-00-DX1.3E767456-45E7-43CD-B5CD-2162C7EB4B05
+downsample [4.00044903 4.        ]
+downsampled_level_dim [6681 9117]
+level_dim [6681 9117]
+name TCGA-D3-A5GN-06Z-00-DX1.3E767456-45E7-43CD-B5CD-2162C7EB4B05
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-D3-A5GN-06Z-00-DX1.3E767456-45E7-43CD-B5CD-2162C7EB4B05.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+
+computing features for TCGA-D3-A5GN-06Z-00-DX1.3E767456-45E7-43CD-B5CD-2162C7EB4B05 took 12.21440601348877 s
+
+progress: 467/475
+TCGA-WE-AAA3-06Z-00-DX1.4D21C5FD-48C6-4F90-9137-43AB726DB6BB
+downsample [4.00008731 4.00016808]
+downsampled_level_dim [34361 17849]
+level_dim [34361 17849]
+name TCGA-WE-AAA3-06Z-00-DX1.4D21C5FD-48C6-4F90-9137-43AB726DB6BB
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-WE-AAA3-06Z-00-DX1.4D21C5FD-48C6-4F90-9137-43AB726DB6BB.h5: total of 2 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+index current: 3600
+index current: 3700
+index current: 3800
+index current: 3900
+index current: 4000
+index current: 4100
+index current: 4200
+index current: 4300
+
+computing features for TCGA-WE-AAA3-06Z-00-DX1.4D21C5FD-48C6-4F90-9137-43AB726DB6BB took 89.056640625 s
+
+progress: 468/475
+TCGA-EE-A181-01Z-00-DX1.B302A50A-0719-4B46-8605-09D8A0FA20B6
+downsample [4.00010004 4.00013222]
+downsampled_level_dim [29987 22690]
+level_dim [29987 22690]
+name TCGA-EE-A181-01Z-00-DX1.B302A50A-0719-4B46-8605-09D8A0FA20B6
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-EE-A181-01Z-00-DX1.B302A50A-0719-4B46-8605-09D8A0FA20B6.h5: total of 2 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+index current: 3600
+index current: 3700
+index current: 3800
+index current: 3900
+index current: 4000
+index current: 4100
+index current: 4200
+index current: 4300
+index current: 4400
+index current: 4500
+index current: 4600
+index current: 4700
+index current: 4800
+index current: 4900
+index current: 5000
+index current: 5100
+index current: 5200
+index current: 5300
+index current: 5400
+index current: 5500
+index current: 5600
+index current: 5700
+index current: 5800
+index current: 5900
+index current: 6000
+index current: 6100
+index current: 6200
+
+computing features for TCGA-EE-A181-01Z-00-DX1.B302A50A-0719-4B46-8605-09D8A0FA20B6 took 93.85632991790771 s
+
+progress: 469/475
+TCGA-D3-A1Q7-06Z-00-DX1.25BEC48C-7909-4D71-B428-F25F8105C409
+downsample [4.0000911  4.00023223]
+downsampled_level_dim [10977  8612]
+level_dim [10977  8612]
+name TCGA-D3-A1Q7-06Z-00-DX1.25BEC48C-7909-4D71-B428-F25F8105C409
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-D3-A1Q7-06Z-00-DX1.25BEC48C-7909-4D71-B428-F25F8105C409.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+
+computing features for TCGA-D3-A1Q7-06Z-00-DX1.25BEC48C-7909-4D71-B428-F25F8105C409 took 22.363880395889282 s
+
+progress: 470/475
+TCGA-EB-A42Y-01Z-00-DX1.C2F1ACDE-A147-4CAD-AB46-B1A4632BB4A7
+downsample [4. 4.]
+downsampled_level_dim [21182 12975]
+level_dim [21182 12975]
+name TCGA-EB-A42Y-01Z-00-DX1.C2F1ACDE-A147-4CAD-AB46-B1A4632BB4A7
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-EB-A42Y-01Z-00-DX1.C2F1ACDE-A147-4CAD-AB46-B1A4632BB4A7.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+
+computing features for TCGA-EB-A42Y-01Z-00-DX1.C2F1ACDE-A147-4CAD-AB46-B1A4632BB4A7 took 54.707448959350586 s
+
+progress: 471/475
+TCGA-ER-A19W-01Z-00-DX1.E0AFB547-537F-4F1D-9092-61D2434531F7
+downsample [4.0001146  4.00008034]
+downsampled_level_dim [26179 24893]
+level_dim [26179 24893]
+name TCGA-ER-A19W-01Z-00-DX1.E0AFB547-537F-4F1D-9092-61D2434531F7
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-ER-A19W-01Z-00-DX1.E0AFB547-537F-4F1D-9092-61D2434531F7.h5: total of 2 batches
+index current: 3600
+index current: 3700
+index current: 3800
+index current: 3900
+index current: 4000
+index current: 4100
+index current: 4200
+index current: 4300
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+
+computing features for TCGA-ER-A19W-01Z-00-DX1.E0AFB547-537F-4F1D-9092-61D2434531F7 took 89.2303056716919 s
+
+progress: 472/475
+TCGA-D3-A2J9-06Z-00-DX1.5526CFD6-96AB-49F8-B88C-DC9DC5E349F0
+downsample [4.         4.00024679]
+downsampled_level_dim [10500  8104]
+level_dim [10500  8104]
+name TCGA-D3-A2J9-06Z-00-DX1.5526CFD6-96AB-49F8-B88C-DC9DC5E349F0
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-D3-A2J9-06Z-00-DX1.5526CFD6-96AB-49F8-B88C-DC9DC5E349F0.h5: total of 1 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+
+computing features for TCGA-D3-A2J9-06Z-00-DX1.5526CFD6-96AB-49F8-B88C-DC9DC5E349F0 took 24.462628841400146 s
+
+progress: 473/475
+TCGA-WE-A8ZN-06Z-00-DX1.9134D58D-8DE3-4310-9E0E-8095CF3FDA6C
+downsample [4.00011156 4.00004599]
+downsampled_level_dim [26891 21743]
+level_dim [26891 21743]
+name TCGA-WE-A8ZN-06Z-00-DX1.9134D58D-8DE3-4310-9E0E-8095CF3FDA6C
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-WE-A8ZN-06Z-00-DX1.9134D58D-8DE3-4310-9E0E-8095CF3FDA6C.h5: total of 2 batches
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+index current: 3600
+index current: 3700
+index current: 3800
+index current: 3900
+
+computing features for TCGA-WE-A8ZN-06Z-00-DX1.9134D58D-8DE3-4310-9E0E-8095CF3FDA6C took 88.53830361366272 s
+
+progress: 474/475
+TCGA-D9-A1X3-06Z-00-DX2.B7119EA5-DADA-456F-B4A0-BF45E44E0BCF
+downsample [4.00009848 4.        ]
+downsampled_level_dim [30463 21627]
+level_dim [30463 21627]
+name TCGA-D9-A1X3-06Z-00-DX2.B7119EA5-DADA-456F-B4A0-BF45E44E0BCF
+patch_level 1
+patch_size 518
+save_path tcga_slides_level_1/patches
+
+feature extraction settings
+target patch size:  (224, 224)
+pretrained:  True
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+processing /home/carlos.hernandez/PhD/CLAM/tcga_slides_level_1/patches/TCGA-D9-A1X3-06Z-00-DX2.B7119EA5-DADA-456F-B4A0-BF45E44E0BCF.h5: total of 2 batches
+index current: 3600
+index current: 3700
+index current: 3800
+index current: 3900
+index current: 4000
+index current: 4100
+index current: 4200
+index current: 4300
+index current: 4400
+index current: 4500
+index current: 4600
+index current: 4700
+index current: 4800
+index current: 4900
+index current: 0
+index current: 100
+index current: 200
+index current: 300
+index current: 400
+index current: 500
+index current: 600
+index current: 700
+index current: 800
+index current: 900
+index current: 1000
+index current: 1100
+index current: 1200
+index current: 1300
+index current: 1400
+index current: 1500
+index current: 1600
+index current: 1700
+index current: 1800
+index current: 1900
+index current: 2000
+index current: 2100
+index current: 2200
+index current: 2300
+index current: 2400
+index current: 2500
+index current: 2600
+index current: 2700
+index current: 2800
+index current: 2900
+index current: 3000
+index current: 3100
+index current: 3200
+index current: 3300
+index current: 3400
+index current: 3500
+
+computing features for TCGA-D9-A1X3-06Z-00-DX2.B7119EA5-DADA-456F-B4A0-BF45E44E0BCF took 90.9392728805542 s
+Stored features successfully!
