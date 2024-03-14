@@ -66,12 +66,13 @@ def seg_and_patch(source, save_dir, patch_save_dir, mask_save_dir, stitch_save_d
                   seg=False, save_mask=True,
                   stitch=False,
                   patch=False, auto_skip=True, process_list=None):
-    slides = glob(source + '/*/*/*/*.svs')
+    slides = glob(source + '*.svs')
     # slides = sorted(os.listdir(source), reverse=True)
     # slides =
     # pdb.set_trace()
     # slides = slides[-10:]
     slides = [slide for slide in slides if os.path.isfile(os.path.join(source, slide))]
+    print("slides: ", len(slides))
     if process_list is None:
         df = initialize_df(slides, seg_params, filter_params, vis_params, patch_params)
 
@@ -114,6 +115,7 @@ def seg_and_patch(source, save_dir, patch_save_dir, mask_save_dir, stitch_save_d
 
         # Inialize WSI
         full_path = slide
+        print("full_path: ", full_path)
         try:
             WSI_object = WholeSlideImage(full_path)
         except:
@@ -254,7 +256,7 @@ def seg_and_patch(source, save_dir, patch_save_dir, mask_save_dir, stitch_save_d
 
 
 parser = argparse.ArgumentParser(description='seg and patch')
-parser.add_argument('--source', type=str, default='/mnt/Xsky/bracs/BRACS_WSI',
+parser.add_argument('--source', type=str, default='',
                     help='path to folder containing raw wsi image files')
 parser.add_argument('--step_size', type=int, default=512,
                     help='step_size')
@@ -264,7 +266,7 @@ parser.add_argument('--patch', default=True, action='store_true')
 parser.add_argument('--seg', default=True, action='store_true')
 parser.add_argument('--stitch', default=True, action='store_true')
 parser.add_argument('--no_auto_skip', default=True, action='store_false')
-parser.add_argument('--save_dir', type=str, default='/mnt/Xsky/zyl/dataset/bracs/coords_anno_x20',
+parser.add_argument('--save_dir', type=str, default='',
                     help='directory to save processed data')
 parser.add_argument('--preset', default=None, type=str,
                     help='predefined profile of default segmentation and filter parameters (.csv)')

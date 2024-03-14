@@ -1,0 +1,1 @@
+python Step1_create_patches_fp.py --save_dir "/home/lauren.jimenez/dataset/" --source "/localdisk/TCGA/all_files_together/" --patch_size 518 --step_size 518 --seg --patch --stitch --patch_level 1 --preset "/home/carlos.hernandez/PhD/CLAM/presets/tcga.csv" 

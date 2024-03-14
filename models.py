@@ -5,7 +5,7 @@ from timm.models.vision_transformer import VisionTransformer
 from torchvision.models.resnet import Bottleneck
 import torchvision.models as models
 
-from torchvision.models.resnet import BasicBlock, model_urls, Bottleneck
+from torchvision.models.resnet import BasicBlock,ResNet50_Weights, Bottleneck
 import torch
 from torch import nn as nn
 from torch.utils import model_zoo

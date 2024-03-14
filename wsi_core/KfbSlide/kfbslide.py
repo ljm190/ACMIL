@@ -8,7 +8,7 @@ import operator, math
 import numpy as np
 from io import BytesIO
 from PIL import Image
-from collections import Mapping
+from collections.abc import Mapping
 class kfbRef:
     img_count = 0
 

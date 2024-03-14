@@ -16,18 +16,18 @@ import openslide
 import yaml
 from utils.utils import Struct
 
-device = 'cuda:{}'.format(2)
+device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
 parser = argparse.ArgumentParser(description='Extract Features of Patches with TopK confidence')
-parser.add_argument('--data_h5_dir', type=str, default='/mnt/Xsky/zyl/dataset/bracs/coords_anno_x20')
-parser.add_argument('--data_slide_dir', type=str, default='/mnt/Xsky/bracs/BRACS_WSI')
+parser.add_argument('--data_h5_dir', type=str, default='')
+parser.add_argument('--data_slide_dir', type=str, default='')
 parser.add_argument('--slide_ext', type=str, default='.svs')
-parser.add_argument('--csv_path', type=str, default='dataset_csv/bracs.csv')
+parser.add_argument('--csv_path', type=str, default='')
 parser.add_argument('--batch_size', type=int, default=256)
 parser.add_argument('--no_auto_skip', default=False, action='store_true')
 parser.add_argument('--custom_downsample', type=int, default=1)
 parser.add_argument('--target_patch_size', type=int, default=224)
-parser.add_argument('--config', dest='config', default='config/bracs_medical_ssl_config.yml',
+parser.add_argument('--config', dest='config', default='',
                     help='settings of Tip-Adapter in yaml format')
 args = parser.parse_args()
 
@@ -49,7 +49,7 @@ def extract_feature(file_path, output_path, wsi, model,
     dataset = Whole_Slide_Bag_FP(file_path=file_path, wsi=wsi, pretrained=pretrained,
                                  custom_downsample=custom_downsample, target_patch_size=target_patch_size)
 
-    loader = DataLoader(dataset=dataset, batch_size=batch_size, num_workers=16, collate_fn=collate_features)
+    loader = DataLoader(dataset=dataset, batch_size=batch_size, num_workers=32, collate_fn=collate_features)
 
     if verbose > 0:
         print('processing {}: total of {} batches'.format(file_path, len(loader)))
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     total = len(bags_dataset)
 
 
-    output_path = os.path.join(cfg.data_dir, 'patch_feats_pretrain_%s.h5'%cfg.pretrain)
+    output_path = os.path.join("/home/lauren.jimenez/dataset/features", 'patch_feats_pretrain_%s.h5'%cfg.pretrain)
     h5file = h5py.File(output_path, "w")
     for bag_candidate_idx in range(total):
         slide_id = bags_dataset[bag_candidate_idx].split(args.slide_ext)[0]
