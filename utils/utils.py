@@ -495,8 +495,8 @@ class SAM(torch.optim.Optimizer):
 
 class Wandb_Writer(object):
 
-    def __init__(self, project_name='wsi_classification', group_name='baseline', mode='online', name=0):
-        self.wandb = wandb.init(project=project_name, group=group_name, entity="dazhangyu123", save_code=True, mode=mode, name='seed%d'%name)
+    def __init__(self, project_name='ACMIL_classification_conf',entity=None, group_name='baseline', mode='online', name="", args= None):
+        self.wandb = wandb.init(project=project_name,save_code=True, mode=mode, name=name, config = args)
 
     def log(self, var_name, var, commit=True):
         self.wandb.log({var_name: var}, commit=commit)

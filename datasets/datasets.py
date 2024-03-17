@@ -42,6 +42,38 @@ def split_dataset_camelyon(file_path, conf):
     h5_data.close()
     return train_split, train_names, val_split, val_names, test_split, test_names
 
+def split_dataset_TCGA_skin(file_path, conf,n_split):
+    n_split = str(n_split)
+    split_path = conf.split_path + "splits_" + n_split + ".csv"
+    print(split_path)
+    df = pd.read_csv(split_path)
+    train_names = df["train"]
+    val_names = df["val"].dropna().values
+    test_names = df["test"].dropna().values
+
+    print("file_path",file_path)
+    h5_data = h5py.File(file_path, 'r')
+    slide_names = list(h5_data.keys())
+    train_split, val_split, test_split = {}, {}, {}
+    #class_transfer_dict_4class = {"luminal_A":0, "luminal_BHER2":1, "triple_neg":2, "N_A":3}
+
+    #print("val_names",val_names)
+    #print("test_names",test_names)
+    for (names, split) in [(train_names, train_split), (val_names, val_split), (test_names, test_split)]:
+        for name in names:
+            slide = h5_data[name]
+
+            label = int(slide.attrs['label'])
+            #label = class_transfer_dict_4class[label]
+            feat = slide['feat'][:]
+            coords = slide['coords'][:]
+
+            split[name] = {'input': feat, 'coords': coords, 'label': label}
+    h5_data.close()
+    
+
+
+    return train_split, train_names, val_split, val_names, test_split, test_names
 
 
 def split_dataset_bracs(file_path, conf):
@@ -193,13 +225,17 @@ def generate_fewshot_dataset(train_split, train_names, num_shots):
         return train_split, train_names
 
 
-def build_HDF5_feat_dataset(file_path, conf):
+def build_HDF5_feat_dataset(file_path, conf,n_split=None):
     if conf.dataset == 'camelyon':
         train_split, train_names, val_split, val_names, test_split, test_names = split_dataset_camelyon(file_path, conf)
         train_split, train_names = generate_fewshot_dataset(train_split, train_names, num_shots=conf.n_shot)
         return HDF5_feat_dataset2(train_split, train_names), HDF5_feat_dataset2(val_split, val_names), HDF5_feat_dataset2(test_split, test_names)
     elif conf.dataset == 'bracs':
         train_split, train_names, val_split, val_names, test_split, test_names = split_dataset_bracs(file_path, conf)
+        train_split, train_names = generate_fewshot_dataset(train_split, train_names, num_shots=conf.n_shot)
+        return HDF5_feat_dataset2(train_split, train_names), HDF5_feat_dataset2(val_split, val_names), HDF5_feat_dataset2(test_split, test_names)
+    elif conf.dataset == 'TCGA_skin':
+        train_split, train_names, val_split, val_names, test_split, test_names = split_dataset_TCGA_skin(file_path, conf,n_split)
         train_split, train_names = generate_fewshot_dataset(train_split, train_names, num_shots=conf.n_shot)
         return HDF5_feat_dataset2(train_split, train_names), HDF5_feat_dataset2(val_split, val_names), HDF5_feat_dataset2(test_split, test_names)
     elif conf.dataset == 'lct':
