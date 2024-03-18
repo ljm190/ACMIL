@@ -710,7 +710,8 @@ class TransformWrapper_Carlos(nn.Module):
         self.sub_attention = nn.ModuleList()
         for i in range(conf.n_token):
             self.sub_attention.append(MutiHeadAttention(conf.D_inner, 8, n_masked_patch=conf.n_masked_patch, mask_drop=conf.mask_drop))
-        self.bag_attention = MutiHeadAttention1(conf.D_inner, 8)
+
+
         self.q = nn.Parameter(torch.zeros((1, conf.n_token, conf.D_inner)))
         nn.init.normal_(self.q, std=1e-6)
         self.n_class = conf.n_class
@@ -730,7 +731,8 @@ class TransformWrapper_Carlos(nn.Module):
         # For Lauren: Figure out if this is the actual input size needed
         input_size = 384
         self.attention = transformer_module(input_dim=input_size, dim=dim,
-                                            mlp_dim=mlp_dim, heads=heads, depth=1)#, emb_dropout=0.2 ,dropout=0.2)
+                                            mlp_dim=mlp_dim, heads=heads, depth=1)
+
     def forward(self, input, use_attention_mask=True):
         input = self.dimreduction(input)
         q = self.q
@@ -744,7 +746,9 @@ class TransformWrapper_Carlos(nn.Module):
             attns.append(attn_i)
 
         attns = torch.cat(attns, 1)
-        feat_bag = self.bag_attention(v, attns.softmax(dim=-1).mean(1, keepdim=True))
+
+        # Carlos: I do not know what is inside attns. I assume is the aggregated importance per attention head
+        feat_bag = self.bag_attention(attns)
 
         return torch.cat(outputs, dim=0), self.Slide_classifier(feat_bag), attns
 
