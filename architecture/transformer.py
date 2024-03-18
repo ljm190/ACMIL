@@ -9,6 +9,10 @@ from einops import repeat
 from .nystrom_attention import NystromAttention
 from modules.emb_position import *
 
+
+# Add this for the transformer aggregator
+from carlos_aggregators.transformers import Transformer as transformer_module
+
 def pos_enc_1d(D, len_seq):
     
     if D % 2 != 0:
@@ -78,6 +82,7 @@ class TransformWrapper1(nn.Module):
         feat_bag = self.bag_attention(v, attns.softmax(dim=-1).mean(1, keepdim=True))
 
         return torch.cat(outputs, dim=0), self.Slide_classifier(feat_bag), attns
+
 class TransformWrapper(nn.Module):
     def __init__(self, conf):
         super(TransformWrapper, self).__init__()
@@ -95,7 +100,8 @@ class TransformWrapper(nn.Module):
             self.classifier.append(Classifier_1fc(conf.D_inner, conf.n_class, 0.0))
         self.n_token = conf.n_token
         self.Slide_classifier = Classifier_1fc(conf.D_inner, conf.n_class, 0.0)
-
+        
+            
     def forward(self, input, use_attention_mask=True):
         input = self.dimreduction(input)
         q = self.q
@@ -691,3 +697,56 @@ class TransLayer(nn.Module):
             return x
 
 
+
+
+
+
+##############        Transformer Wrapper        ################
+##############        With 'ViT' structure       ################
+class TransformWrapper_Carlos(nn.Module):
+    def __init__(self, conf):
+        super(TransformWrapper, self).__init__()
+        self.dimreduction = DimReduction(conf.D_feat, conf.D_inner)
+        self.sub_attention = nn.ModuleList()
+        for i in range(conf.n_token):
+            self.sub_attention.append(MutiHeadAttention(conf.D_inner, 8, n_masked_patch=conf.n_masked_patch, mask_drop=conf.mask_drop))
+        self.bag_attention = MutiHeadAttention1(conf.D_inner, 8)
+        self.q = nn.Parameter(torch.zeros((1, conf.n_token, conf.D_inner)))
+        nn.init.normal_(self.q, std=1e-6)
+        self.n_class = conf.n_class
+
+        self.classifier = nn.ModuleList()
+        for i in range(conf.n_token):
+            self.classifier.append(Classifier_1fc(conf.D_inner, conf.n_class, 0.0))
+        self.n_token = conf.n_token
+        self.Slide_classifier = Classifier_1fc(conf.D_inner, conf.n_class, 0.0)
+        
+        # Ideally we would have 8 heads but 
+        # we need more GPU
+        heads = 5
+        dim = 32 * heads
+        mlp_dim = dim
+        
+        # For Lauren: Figure out if this is the actual input size needed
+        input_size = 384
+        self.attention = transformer_module(input_dim=input_size, dim=dim,
+                                            mlp_dim=mlp_dim, heads=heads, depth=1)#, emb_dropout=0.2 ,dropout=0.2)
+    def forward(self, input, use_attention_mask=True):
+        input = self.dimreduction(input)
+        q = self.q
+        k = input
+        v = input
+        outputs = []
+        attns = []
+        for i in range(self.n_token):
+            feat_i, attn_i = self.sub_attention[i](q[:, i].unsqueeze(0), k, v, use_attention_mask=use_attention_mask)
+            outputs.append(self.classifier[i](feat_i))
+            attns.append(attn_i)
+
+        attns = torch.cat(attns, 1)
+        feat_bag = self.bag_attention(v, attns.softmax(dim=-1).mean(1, keepdim=True))
+
+        return torch.cat(outputs, dim=0), self.Slide_classifier(feat_bag), attns
+
+if __name__ == '__main__':
+    print('hi')
