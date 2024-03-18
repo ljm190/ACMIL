@@ -33,6 +33,12 @@ def get_arguments():
     parser.add_argument(
         "--seed", type=int, default=1, help="set the random seed to ensure reproducibility"
     )
+    parser.add_argument(
+        "--lr", type=float, default=0.0001, help=""
+    )
+    parser.add_argument(
+        "--wd", type=float, default=0.00001, help=""
+    )
     parser.add_argument('--wandb_mode', default='disabled', choices=['offline', 'online', 'disabled'],
                         help='the model of wandb')
     parser.add_argument(
@@ -49,6 +55,9 @@ def get_arguments():
     )
     parser.add_argument(
         "--level", type=str, default=1, help="just used for wandb"
+    )
+    parser.add_argument(
+        "--model_type", type=str, default=1, help="just used for wandb"
     )
     parser.add_argument(
         "--split", type=int, default=0, help="split number"
@@ -71,13 +80,15 @@ def main():
     #conf.data_dir = args.data_dir
     #conf.name = args.data_dir.split("/")[-3]    
 
-    args.lr = conf.lr
-    args.wd = conf.wd
+    conf.lr = args.lr
+    conf.wd = args.wd
     args.model_type = "ACMIL"
 
     group_name = 'ds_%s_%s_arch_%s_ntoken_%s_nmp_%s_mask_drop_%s_%sepochs' % (conf.dataset, conf.pretrain, conf.arch, conf.n_token, conf.n_masked_patch, conf.mask_drop, conf.train_epoch)
     name = f"Split: {args.split} - ACMIL - lr  {args.lr} - wd {args.wd}"
-    log_writer = Wandb_Writer(project_name= "CVPR-ACMIL-crc2sk",entity='upc_gpi',name=name,args= args)
+    log_writer = Wandb_Writer(project_name= "CVPR-ACMIL-dino",entity='upc_gpi',name=name,args= args)
+    #log_writer = Wandb_Writer(project_name= "CVPR-ACMIL-crc2sk",entity='upc_gpi',name=name,args= args)
+    #log_writer = Wandb_Writer(project_name= "CVPR-ACMIL",entity='upc_gpi',name=name,args= args)
     conf.ckpt_dir = log_writer.wandb.dir[:-5] + 'saved_models'
     if conf.wandb_mode == 'disabled':
         conf.ckpt_dir = os.path.join(conf.ckpt_dir, group_name, str(args.seed))
@@ -140,6 +151,7 @@ def main():
             #log_writer.log('perf/test_f1', test_f1, commit=False)
             #log_writer.log('perf/test_loss', test_loss, commit=False)
 
+        #if val_f1 + val_auc > best_state['best_val_f1'] + best_state['best_val_auc']:
         if val_f1 > best_state['best_val_f1'] :
             best_state['best_epoch'] = epoch
             best_state['best_val_auc'] = val_auc
