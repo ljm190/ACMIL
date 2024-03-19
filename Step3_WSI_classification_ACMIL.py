@@ -51,9 +51,6 @@ def get_arguments():
         "--mask_drop", type=float, default=0.5, help="number of query token"
     )
     parser.add_argument(
-        "--name", type=str, default=1, help="just used for wandb"
-    )
-    parser.add_argument(
         "--level", type=str, default=1, help="just used for wandb"
     )
     parser.add_argument(
@@ -82,13 +79,10 @@ def main():
 
     conf.lr = args.lr
     conf.wd = args.wd
-    args.model_type = "ACMIL"
 
     group_name = 'ds_%s_%s_arch_%s_ntoken_%s_nmp_%s_mask_drop_%s_%sepochs' % (conf.dataset, conf.pretrain, conf.arch, conf.n_token, conf.n_masked_patch, conf.mask_drop, conf.train_epoch)
-    name = f"Split: {args.split} - ACMIL - lr  {args.lr} - wd {args.wd}"
-    log_writer = Wandb_Writer(project_name= "CVPR-ACMIL-dino",entity='upc_gpi',name=name,args= args)
-    #log_writer = Wandb_Writer(project_name= "CVPR-ACMIL-crc2sk",entity='upc_gpi',name=name,args= args)
-    #log_writer = Wandb_Writer(project_name= "CVPR-ACMIL",entity='upc_gpi',name=name,args= args)
+    name = f"Split: {args.split} - {args.model_type} - lr  {args.lr} - wd {args.wd}"
+    log_writer = Wandb_Writer(project_name= "ACMIL-updated_metrics",entity='upc_gpi',name=name,args= args)
     conf.ckpt_dir = log_writer.wandb.dir[:-5] + 'saved_models'
     if conf.wandb_mode == 'disabled':
         conf.ckpt_dir = os.path.join(conf.ckpt_dir, group_name, str(args.seed))
@@ -130,16 +124,16 @@ def main():
         metrics = train_one_epoch(milnet, criterion, train_loader, optimizer0, device, epoch, conf, log_writer)
 
 
-        val_auc, val_acc, val_f1, val_loss,val_precision_macro,val_recall_macro = evaluate(milnet, criterion, val_loader, device, conf, 'Val')
-        test_auc, test_acc, test_f1, test_loss,test_precision_macro,test_recall_macro = evaluate(milnet, criterion, test_loader, device, conf, 'Test')
+        val_auc, val_acc, val_f1, val_loss,val_precision,val_recall = evaluate(milnet, criterion, val_loader, device, conf, 'Val')
+        test_auc, test_acc, test_f1, test_loss,test_precision,test_recall = evaluate(milnet, criterion, test_loader, device, conf, 'Test')
 
         if log_writer is not None:
             metrics.update({'perf/val_acc1': val_acc,'perf/val_auc': val_auc,
                             'perf/val_f1': val_f1,'perf/val_loss': val_loss,'perf/test_acc1': test_acc,
                             'perf/test_auc': test_auc,'perf/test_f1': test_f1, 'perf/test_loss': test_loss,
-                            'perf/val_precision': val_precision_macro,
-                            'perf/val_recall': val_recall_macro,'perf/test_precision': test_precision_macro,
-                            'perf/test_recall': test_recall_macro })
+                            'perf/val_precision': val_precision,
+                            'perf/val_recall': val_recall,'perf/test_precision': test_precision,
+                            'perf/test_recall': test_recall })
             log_writer.wandb.log({**metrics})
 
             #log_writer.log('perf/val_acc1', val_acc, commit=False)
@@ -160,10 +154,10 @@ def main():
             best_state['best_test_auc'] = test_auc
             best_state['best_test_acc'] = test_acc
             best_state['best_test_f1'] = test_f1
-            best_state['best_val_precision'] = val_precision_macro
-            best_state['best_val_recall'] = val_recall_macro
-            best_state['best_test_precision'] = test_precision_macro
-            best_state['best_test_recall'] = test_recall_macro
+            best_state['best_val_precision'] = val_precision
+            best_state['best_val_recall'] = val_recall
+            best_state['best_test_precision'] = test_precision
+            best_state['best_test_recall'] = test_recall
             save_model(
                 conf=conf, model=milnet, optimizer=optimizer0, epoch=epoch, is_best=True)
             print("best_state",best_state)
@@ -276,30 +270,34 @@ def evaluate(net, criterion, data_loader, device, conf, header):
         y_true.append(labels)
 
     y_pred = torch.cat(y_pred, dim=0)
-    y_true = torch.cat(y_true, dim=0)
+    y_true = torch.cat(y_true, dim=0).cpu().numpy()
 
-    AUROC_metric = torchmetrics.AUROC(task="multiclass",num_classes = conf.n_class, average = 'macro').to(device)
-    AUROC_metric(y_pred, y_true)
-    auroc = AUROC_metric.compute().item()
-    F1_metric = torchmetrics.F1Score(task="multiclass",num_classes = conf.n_class, average = 'macro').to(device)
-    F1_metric(y_pred, y_true)
-    f1_score = F1_metric.compute().item()
-    recall_macro = torchmetrics.classification.MulticlassRecall(num_classes = conf.n_class, average = 'macro').to(device)
-    recall_macro = recall_macro(y_pred, y_true).item()
-    precision_macro = torchmetrics.classification.MulticlassPrecision(num_classes = conf.n_class, average = 'macro').to(device)
-    precision_macro = precision_macro(y_pred, y_true).item()
+    y_pred = y_pred.argmax(dim=1).cpu().numpy()
+
+    auroc = roc_auc_score(y_true, y_pred)
+    f1 = f1_score(y_true, y_pred)
+    precision = precision_score(y_true, y_pred)
+    recall = recall_score(y_true, y_pred)
+    balanced_accuracy = balanced_accuracy_score(y_true, y_pred)
+
+    #AUROC_metric = torchmetrics.AUROC(task="multiclass",num_classes = conf.n_class, average = 'macro').to(device)
+    #AUROC_metric(y_pred, y_true)
+    #auroc = AUROC_metric.compute().item()
+    #F1_metric = torchmetrics.F1Score(task="multiclass",num_classes = conf.n_class, average = 'macro').to(device)
+    #F1_metric(y_pred, y_true)
+    #f1_score = F1_metric.compute().item()
+    #recall_macro = torchmetrics.classification.MulticlassRecall(num_classes = conf.n_class, average = 'macro').to(device)
+    #recall_macro = recall_macro(y_pred, y_true).item()
+    #precision_macro = torchmetrics.classification.MulticlassPrecision(num_classes = conf.n_class, average = 'macro').to(device)
+    #precision_macro = precision_macro(y_pred, y_true).item()
     
-    #binary_preds = (y_pred >= 0.5).astype(int)
-    #f1_score = f1_score(y_true, binary_preds)
-    #precision = precision_score(y_true, binary_preds)
-    #recall = recall_score(y_true, binary_preds)
+ 
 
-    print('* Acc@1 {top1.global_avg:.3f} loss {losses.global_avg:.3f} auroc {AUROC:.3f} f1_score {F1:.3f}'
-          .format(top1=metric_logger.acc1, losses=metric_logger.loss, AUROC=auroc, F1=f1_score))
-    print(header,  "f1_score", f1_score, "precision_macro", precision_macro, "recall_macro",recall_macro)
+    
+    print(header,"acc",metric_logger.acc1.global_avg, "auroc",auroc, "f1_score", f1, "precision", precision, "recall",recall)
 
 
-    return auroc, metric_logger.acc1.global_avg, f1_score, metric_logger.loss.global_avg, precision_macro,recall_macro
+    return auroc, metric_logger.acc1.global_avg, f1, metric_logger.loss.global_avg, precision,recall
 
 
 

@@ -1,8 +1,8 @@
 #opt
 train_epoch: 100           # number of epochs
 warmup_epoch: 0    # number of warm-up epochs
-wd: 0.001               # weight decay
-lr: 0.0005
+wd: 0.00001               # weight decay
+lr: 0.0001
 min_lr: 0
 
 #dset
