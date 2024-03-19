@@ -14,6 +14,7 @@ from torch.utils.data import DataLoader
 from utils.utils import save_model, Struct, set_seed, Wandb_Writer
 from datasets.datasets import build_HDF5_feat_dataset
 from architecture.transformer import AttnMIL6 as AttnMIL
+from architecture.transformer import AttnMIL6_with_Transformer as AttMil_Transf
 from architecture.transformer import TransformWrapper
 
 from utils.utils import MetricLogger, SmoothedValue, adjust_learning_rate
@@ -85,7 +86,7 @@ def main():
     log_writer = Wandb_Writer(project_name= "ACMIL-updated_metrics",entity='upc_gpi',name=name,args= args)
     conf.ckpt_dir = log_writer.wandb.dir[:-5] + 'saved_models'
     if conf.wandb_mode == 'disabled':
-        conf.ckpt_dir = os.path.join(conf.ckpt_dir, group_name, str(args.seed))
+        conf.ckpt_dir = os.path.join(group_name, str(args.seed))
     os.makedirs(conf.ckpt_dir, exist_ok=True)
     print("Used config:");
     pprint(vars(conf));
@@ -106,6 +107,8 @@ def main():
     # define network
     if conf.arch == 'ga':
         milnet = AttnMIL(conf)
+    elif conf.arch == 'actr':
+        milnet = AttMil_Transf(conf)
     else:
         milnet = TransformWrapper(conf)
     milnet.to(device)

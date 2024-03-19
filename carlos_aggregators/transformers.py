@@ -3,7 +3,7 @@ import torch.nn as nn
 from einops import repeat
 
 from torch.nn import functional as F
-from models.transformers_utils import Attention, FeedForward, PreNorm
+from carlos_aggregators.transformers_utils import Attention, FeedForward, PreNorm
 
 class BaseAggregator(nn.Module):
     def __init__(self):
@@ -67,8 +67,9 @@ class Transformer(BaseAggregator):
         self.pos_enc = pos_enc
 
     def forward(self, x, coords=None, register_hook=False):
+        #import ipdb;ipdb.set_trace()
         b, _, _ = x.shape
-
+        
         x = self.projection(x)
 
         if self.pos_enc:

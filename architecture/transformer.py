@@ -730,7 +730,7 @@ class TransformWrapper_Carlos(nn.Module):
         
         # For Lauren: Figure out if this is the actual input size needed
         input_size = 384
-        self.attention = transformer_module(input_dim=input_size, dim=dim,
+        self.bag_attention = transformer_module(input_dim=input_size, dim=dim,
                                             mlp_dim=mlp_dim, heads=heads, depth=1)
 
     def forward(self, input, use_attention_mask=True):
@@ -751,6 +751,86 @@ class TransformWrapper_Carlos(nn.Module):
         feat_bag = self.bag_attention(attns)
 
         return torch.cat(outputs, dim=0), self.Slide_classifier(feat_bag), attns
+
+
+class AttnMIL6_with_Transformer(nn.Module):
+    def __init__(self, conf, D=128, droprate=0):
+        super(AttnMIL6_with_Transformer, self).__init__()
+        self.dimreduction = DimReduction(conf.D_feat, conf.D_inner)
+        self.attention = Attention_Gated(conf.D_inner, D, conf.n_token)
+        self.classifier = nn.ModuleList()
+        for i in range(conf.n_token):
+            self.classifier.append(Classifier_1fc(conf.D_inner, conf.n_class, droprate))
+        self.n_masked_patch = conf.n_masked_patch
+        self.n_token = conf.n_token
+        self.Slide_classifier = Classifier_1fc(conf.D_inner, conf.n_class, droprate)
+        self.mask_drop = conf.mask_drop
+
+         # Ideally we would have 8 heads but 
+        # we need more GPU
+        heads = 5
+        dim = 32 * heads
+        mlp_dim = dim
+        
+        # For Lauren: Figure out if this is the actual input size needed
+        input_size = 128
+        self.aggregation = transformer_module(input_dim=input_size, dim=dim,
+                                            mlp_dim=mlp_dim, heads=heads, depth=1)
+
+
+
+    def forward(self, x, use_attention_mask=False): ## x: N x L
+        x = x[0]
+        x = self.dimreduction(x)
+        A = self.attention(x)  ## K x N
+
+
+        if self.n_masked_patch > 0 and use_attention_mask:
+            # Get the indices of the top-k largest values
+            k, n = A.shape
+            n_masked_patch = min(self.n_masked_patch, n)
+            _, indices = torch.topk(A, n_masked_patch, dim=-1)
+            rand_selected = torch.argsort(torch.rand(*indices.shape), dim=-1)[:,:int(n_masked_patch * self.mask_drop)]
+            masked_indices = indices[torch.arange(indices.shape[0]).unsqueeze(-1), rand_selected]
+            random_mask = torch.ones(k, n).to(A.device)
+            random_mask.scatter_(-1, masked_indices, 0)
+            A = A.masked_fill(random_mask == 0, -1e9)
+
+       # import ipdb;ipdb.set_trace()
+        A_out = A
+        A = F.softmax(A, dim=1)  # softmax over N
+        afeat = torch.mm(A, x) ## K x L
+        outputs = []
+        for i, head in enumerate(self.classifier):
+            outputs.append(head(afeat[i]))
+        #bag_A = F.softmax(A_out, dim=1).mean(0, keepdim=True)
+        #bag_feat = torch.mm(bag_A, x)
+        agregation = self.aggregation(afeat.unsqueeze(0))
+        import ipdb;ipdb.set_trace()
+        return torch.stack(outputs, dim=0), self.Slide_classifier(agregation), A_out.unsqueeze(0)
+
+    def forward_feature(self, x, use_attention_mask=False): ## x: N x L
+        x = x[0]
+        x = self.dimreduction(x)
+        A = self.attention(x)  ## K x N
+
+
+        if self.n_masked_patch > 0 and use_attention_mask:
+            # Get the indices of the top-k largest values
+            k, n = A.shape
+            n_masked_patch = min(self.n_masked_patch, n)
+            _, indices = torch.topk(A, n_masked_patch, dim=-1)
+            rand_selected = torch.argsort(torch.rand(*indices.shape), dim=-1)[:,:int(n_masked_patch * self.mask_drop)]
+            masked_indices = indices[torch.arange(indices.shape[0]).unsqueeze(-1), rand_selected]
+            random_mask = torch.ones(k, n).to(A.device)
+            random_mask.scatter_(-1, masked_indices, 0)
+            A = A.masked_fill(random_mask == 0, -1e9)
+
+        A_out = A
+        bag_A = F.softmax(A_out, dim=1).mean(0, keepdim=True)
+        bag_feat = torch.mm(bag_A, x)
+        return bag_feat
+
 
 if __name__ == '__main__':
     print('hi')
