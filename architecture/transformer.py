@@ -763,7 +763,6 @@ class AttnMIL6_with_Transformer(nn.Module):
             self.classifier.append(Classifier_1fc(conf.D_inner, conf.n_class, droprate))
         self.n_masked_patch = conf.n_masked_patch
         self.n_token = conf.n_token
-        self.Slide_classifier = Classifier_1fc(conf.D_inner, conf.n_class, droprate)
         self.mask_drop = conf.mask_drop
 
          # Ideally we would have 8 heads but 
@@ -776,6 +775,8 @@ class AttnMIL6_with_Transformer(nn.Module):
         input_size = 128
         self.aggregation = transformer_module(input_dim=input_size, dim=dim,
                                             mlp_dim=mlp_dim, heads=heads, depth=1)
+
+        self.Slide_classifier = Classifier_1fc(mlp_dim, conf.n_class, droprate)
 
 
 
@@ -806,7 +807,7 @@ class AttnMIL6_with_Transformer(nn.Module):
         #bag_A = F.softmax(A_out, dim=1).mean(0, keepdim=True)
         #bag_feat = torch.mm(bag_A, x)
         agregation = self.aggregation(afeat.unsqueeze(0))
-        import ipdb;ipdb.set_trace()
+        #import ipdb;ipdb.set_trace()
         return torch.stack(outputs, dim=0), self.Slide_classifier(agregation), A_out.unsqueeze(0)
 
     def forward_feature(self, x, use_attention_mask=False): ## x: N x L
